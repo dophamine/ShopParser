@@ -46,6 +46,7 @@ function parseURL_toyOne($url) {
     ];
 
     file_put_contents('storage/products/' . $md5 . '.json', json_encode($json));
+    var_dump($json);
 }
 
 function parseURL_12ka($url) {
@@ -57,7 +58,7 @@ function parseURL_12ka($url) {
         
     $description = $page->find('.b-user-content > ul')[0]->plaintext;
 
-    echo $image = $page->find('.b-product__image-panel  img')[0]->src;
+    $image = $page->find('.b-product__image-panel  img')[0]->src;
     $imageSrc = file_get_contents($image);
     $ext = '.'.getExtension1($image);
     file_put_contents('storage/images/' . $md5 .$ext, $imageSrc);
@@ -95,7 +96,7 @@ function parseURL_12ka($url) {
     file_put_contents('storage/products/' . $md5 . '.json', json_encode($json));
 }
 
-parseURL_toyOne('http://toyone.com.ua/shop/2899/desc/detskij-manezh-carrello-grande-crl-7401-goluboj');
+parseURL_toyOne('http://selavi.com.ua/shop/5529/desc/jubillux-detskij-konstruktor-j-5670-a-korabl');
 
-parseURL_12ka('http://12ka.com.ua/p59989986-trehkolesnyj-velosiped-paty.html');
+parseURL_12ka('http://12ka.com.ua/p169402605-universalnyj-pylesos-karcher.html');
 
